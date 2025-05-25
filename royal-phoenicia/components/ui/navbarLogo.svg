@@ -1,0 +1,18 @@
+<svg width="400" height="100" viewBox="0 0 400 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="100" fill="none" />
+  
+  <!-- Year -->
+  <text x="20" y="55" font-family="Verdana" font-size="18" fill="white" letter-spacing="12">2022</text>
+
+  <!-- Stars -->
+  <text x="310" y="55" font-family="Verdana" font-size="18" fill="white" letter-spacing="12">☆ ☆ ☆ ☆</text>
+
+  <!-- Circle Logo -->
+  <circle cx="200" cy="50" r="35" stroke="white" stroke-width="2" fill="none" />
+
+  <!-- Crown -->
+  <text x="192" y="30" font-family="Verdana" font-size="12" fill="white">👑</text>
+
+  <!-- ROYAL text -->
+  <text x="170" y="60" font-family="Georgia" font-size="24" fill="white">ROYAL</text>
+</svg>
