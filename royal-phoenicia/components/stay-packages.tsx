@@ -7,6 +7,7 @@ import { Button } from "./ui/button"
 import { ChevronRight, } from "lucide-react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons'; // or free-light if using Pro
+import { IconButton } from "./ui/IconButton"
 
 
 
@@ -53,17 +54,17 @@ export function StayPackages() {
           Stay packages
         </motion.h2>
 
-        <div className="relative">
-          <div>
-            <div>
-               <div ref={scrollContainerRef} className="horizontal-scroll">
+        <div className="relative horizontal-scroll">
             {packages.map((pkg, index) => (
+          <div>
+            <div className="border border-gray-800 ">
+               <div ref={scrollContainerRef} className="horizontal-scroll border border-white bg-white m-4 overflow-hidden">
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: 50 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
-                className="card-hover relative  overflow-hidden group cursor-pointer w-[600px] md:w-[500px] shadow-xl"
+                className="card-hover relative group cursor-pointer w-[600px] md:w-[500px] shadow-xl"
               >
                 <div className="aspect-w-4 aspect-h-4">
                  
@@ -85,34 +86,32 @@ export function StayPackages() {
                         transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
                         className="flex justify-center gap-4"
                       >
-                        <Button
-                          variant="outline"
-                          className="border-2 rounded-full border-gray-500 text-gray-600  hover:text-black button-transition font-montserrat font-semibold tracking-wide text-md px-8 hover:p-8 duration-1000 mb-6"
-                        >  <span className="icon ">
-                            <ChevronRight size={80} /> 
-                            </span>
-                          <span className="text">More</span>
-                         
-                        </Button>
-                        <Button
-                          variant="outline"
-                          className="border border-white rounded-full bg-white text-gray-600  hover:text-black button-transition font-montserrat font-semibold tracking-wide text-md px-8 hover:p-8 duration-1000 mb-6"
-                        >
-                          <span className="icon ">
-                            <FontAwesomeIcon className="text-gray-600 hover:bg-black" icon={"function"} />
-                          </span>
-                          <span className="text">Booking</span>
-                          
-                        </Button>
+                         <IconButton
+                        icon={<ChevronRight />}
+                        label="More"
+                        variant="outline"
+                        className= "bg-transparent text-gray-800 border border-gray-700 rounded-full w-fit "
+                      >
+                      
+                      </IconButton>
+                      <IconButton
+                        icon={<FontAwesomeIcon icon={faBagShopping} />}
+                        label="Booking"
+                        variant="outline"
+                        className= "bg-transparent text-gray-800 border border-gray-700 rounded-full w-fit "
+                      >
+                      
+                      </IconButton>
+                     
                     </motion.div>
                 </div>
                 </div>
                
               </motion.div>
-            ))}
           </div>
             </div>
           </div>
+            ))}
         </div>
       </div>
     </section>
