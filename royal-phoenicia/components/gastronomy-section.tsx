@@ -9,6 +9,21 @@ export function GastronomySection() {
     threshold: 0.2,
   })
 
+    const facilities = [
+    {
+      title: "Checkin Image",
+      image: "https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg",
+    },
+    {
+      title: "Dining img",
+      image: "https://www.victoria-house.com/wp-content/uploads/2020/03/5no_0195.jpg",
+    },
+    {
+      title: "Bedroom Image",
+      image: "https://plus.unsplash.com/premium_photo-1722686486118-64c4e3649f93?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3BhJTIwdHJlYXRtZW50fGVufDB8fDB8fHww",
+    }
+  ]
+
   return (
     <section ref={ref} className="py-24 bg-gray-50">
       <div className="container mx-auto px-6">
@@ -16,26 +31,34 @@ export function GastronomySection() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl md:text-5xl font-playfair text-center mb-20 text-gray-800 leading-relaxed"
+          className="text-6xl md:text-6xl font-playfair text-center mb-20 text-gray-800 leading-relaxed"
         >
           Exceptional gastronomy
           <br />
           served in elegant spaces.
         </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="hover-zoom"
-          >
-            <img
-              src="/placeholder.svg?height=600&width=800&text=Fine+Dining+Experience"
-              alt="Fine dining experience with elegant presentation"
-              className="w-full h-auto rounded-2xl shadow-2xl"
-            />
-          </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center scroll-hide">
+         <div className="scrollbar-hide vertical-scroll flex flex-col items-center gap-6 overflow-y-auto max-h-[400px] snap-y snap-mandatory scroll-smooth">
+  {facilities.map((facility, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
+      className="card-hover snap-start flex-shrink-0 overflow-hidden relative h-96 w-[350px] md:w-[400px] shadow-xl snap-y snap-mandatory scroll-smooth scrollbar-hide"
+    >
+      <img
+        src={facility.image || "/placeholder.svg"}
+        alt={facility.title}
+        className="w-full h-full object-cover snap-y snap-mandatory scroll-smooth scrollbar-hide"
+      />
+      {/* <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div> */}
+    </motion.div>
+  ))}
+</div>
+
+
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}

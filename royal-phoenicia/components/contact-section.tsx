@@ -16,7 +16,7 @@ export function ContactSection() {
           setIsVisible(true)
         }
       },
-      { threshold: 0.3 },
+      { threshold: 0.0 },
     )
 
     if (sectionRef.current) {
@@ -27,18 +27,18 @@ export function ContactSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="contact" className="py-20 bg-white">
+    <section ref={sectionRef} id="contact" className="py-20">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div
-            className={`transition-all duration-1000 ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+            className={` ${
+              isVisible ? "opacity-100 " : "opacity-0 "
             }`}
           >
             <h2 className="font-serif text-4xl md:text-5xl font-light mb-6 text-gray-900">GET IN TOUCH</h2>
 
-            <div className="space-y-6">
+            <div className="space-y-6 ">
               <div>
                 <h3 className="font-medium text-gray-900 mb-2">ADDRESS</h3>
                 <p className="text-gray-600">
@@ -65,7 +65,7 @@ export function ContactSection() {
           {/* Contact Form */}
           <div
             className={`transition-all duration-1000 delay-300 ${
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+              isVisible ? "opacity-100 " : "opacity-0"
             }`}
           >
             <form className="space-y-6">
